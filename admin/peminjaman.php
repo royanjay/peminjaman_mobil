@@ -1,18 +1,19 @@
 <?php include 'header.php'; ?>
 
 <div class="d-flex justify-content-between align-items-center mb-3">
-  <h3>Data Peminjaman</h3>
-  <a href="tambah_pinjam.php" class="btn btn-primary">+ Tambah Peminjaman</a>
+  <h3>Data Peminjaman Mobil</h3>
+  <a href="tambah_peminjam.php" class="btn btn-success">+ Tambah Peminjam</a>
+
 </div>
 
 <table class="table table-bordered table-striped">
-  <thead>
+  <thead class="table-dark">
     <tr>
-      <th>ID</th>
+      <th>No</th>
       <th>Nama Peminjam</th>
       <th>Mobil</th>
-      <th>Tgl Pinjam</th>
-      <th>Tgl Kembali</th>
+      <th>Tanggal Pinjam</th>
+      <th>Tanggal Kembali</th>
       <th>Total Harga</th>
       <th>Status</th>
       <th>Aksi</th>
@@ -20,25 +21,25 @@
   </thead>
   <tbody>
     <?php
-    $q = mysqli_query($conn, "SELECT p.*, m.nama_mobil FROM peminjaman p JOIN mobil m ON p.id_mobil=m.id_mobil ORDER BY p.id_pinjam DESC");
-    while ($r = mysqli_fetch_assoc($q)) {
+    include '../config/config.php';
+    $no = 1;
+    $query = mysqli_query($conn, "SELECT p.*, m.nama_mobil FROM peminjaman p JOIN mobil m ON p.id_mobil = m.id_mobil ORDER BY p.id_peminjaman DESC");
+    while ($row = mysqli_fetch_assoc($query)):
     ?>
     <tr>
-      <td><?= $r['id_pinjam'] ?></td>
-      <td><?= htmlspecialchars($r['nama_peminjam']) ?></td>
-      <td><?= htmlspecialchars($r['nama_mobil']) ?></td>
-      <td><?= $r['tanggal_pinjam'] ?></td>
-      <td><?= $r['tanggal_kembali'] ?></td>
-      <td><?= number_format($r['total_harga']) ?></td>
-      <td><?= $r['status'] ?></td>
+      <td><?= $no++ ?></td>
+      <td><?= $row['nama_peminjam'] ?></td>
+      <td><?= $row['nama_mobil'] ?></td>
+      <td><?= $row['tanggal_pinjam'] ?></td>
+      <td><?= $row['tanggal_kembali'] ?></td>
+      <td>Rp<?= number_format($row['total_harga']) ?></td>
+      <td><?= ucfirst($row['status']) ?></td>
       <td>
-        <?php if ($r['status'] == 'dipinjam'): ?>
-          <a href="kembalikan.php?id=<?= $r['id_pinjam'] ?>" class="btn btn-sm btn-success" onclick="return confirm('Tandai dikembalikan?')">Kembalikan</a>
-        <?php endif; ?>
-        <a href="hapus_pinjam.php?id=<?= $r['id_pinjam'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Hapus peminjaman ini?')">Hapus</a>
+        <a href="edit_peminjaman.php?id=<?= $row['id_peminjaman'] ?>" class="btn btn-warning btn-sm">Edit</a>
+        <a href="hapus_peminjaman.php?id=<?= $row['id_peminjaman'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data ini?')">Hapus</a>
       </td>
     </tr>
-    <?php } ?>
+    <?php endwhile; ?>
   </tbody>
 </table>
 
