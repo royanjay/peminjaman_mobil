@@ -15,9 +15,10 @@ if (isset($_POST['sewa'])) {
     if ($selisih == 0) $selisih = 1;
 
     $total = $mobil['harga_per_hari'] * $selisih;
+    
+$query = "INSERT INTO peminjaman (id_mobil, lama_pinjam, nama_peminjam, no_hp, tanggal_pinjam, tanggal_kembali, total_harga, status)
+VALUES ('$id_mobil', '$selisih', '$nama', '$no_hp', '$tgl_pinjam', '$tgl_kembali', '$total', 'diproses')";
 
-    $query = "INSERT INTO peminjaman (id_mobil, lama_pinjam, nama_peminjam, no_hp, tanggal_pinjam, tanggal_kembali, total_harga, status)
-              VALUES ('$id_mobil', '$selisih', '$nama', '$no_hp', '$tgl_pinjam', '$tgl_kembali', '$total', 'diproses')";
     
     if (mysqli_query($conn, $query)) {
         mysqli_query($conn, "UPDATE mobil SET status='disewa' WHERE id_mobil='$id_mobil'");

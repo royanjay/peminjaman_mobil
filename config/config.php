@@ -21,8 +21,8 @@
 
 
 $host = "127.0.0.1";
-$user = "admin";     // ganti sesuai user MySQL
-$pass = "royhanganteng123";         // password MySQL kamu
+$user = "admin";     
+$pass = "royhanganteng123";
 $db   = "sewa_mobil";
 
 $conn = mysqli_connect($host, $user, $pass, $db);
