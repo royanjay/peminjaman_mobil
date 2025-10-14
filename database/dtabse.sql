@@ -43,18 +43,19 @@ INSERT INTO mobil (nama_mobil, tahun, kapasitas, bahan_bakar, transmisi, harga_p
 -- 4. TABEL PEMINJAMAN
 -- =====================================================
 -- Menyimpan data transaksi penyewaan mobil
-CREATE TABLE peminjaman (
-    id_peminjaman INT AUTO_INCREMENT PRIMARY KEY,
-    id_mobil INT NOT NULL,
-    id_peminjam INT NOT NULL,
-    tanggal_pinjam DATE NOT NULL,
-    tanggal_kembali DATE NOT NULL,
-    lama_pinjam INT NOT NULL,
-    total_bayar INT NOT NULL,
-    status ENUM('dipinjam', 'dikembalikan') DEFAULT 'dipinjam',
-    FOREIGN KEY (id_mobil) REFERENCES mobil(id_mobil),
-    FOREIGN KEY (id_peminjam) REFERENCES peminjam(id_peminjam)
+CREATE TABLE IF NOT EXISTS peminjaman (
+  id_peminjaman INT AUTO_INCREMENT PRIMARY KEY,
+  id_mobil INT NOT NULL,
+  nama_peminjam VARCHAR(100) NOT NULL,
+  no_hp VARCHAR(20) NOT NULL,
+  tanggal_pinjam DATE NOT NULL,
+  tanggal_kembali DATE NOT NULL,
+  lama_pinjam INT NOT NULL,
+  total_harga INT NOT NULL,
+  status ENUM('diproses','disewa','selesai') DEFAULT 'diproses',
+  FOREIGN KEY (id_mobil) REFERENCES mobil(id_mobil)
 );
+
 
 -- =====================================================
 -- 5. VIEW (opsional)
