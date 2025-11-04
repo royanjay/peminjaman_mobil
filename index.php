@@ -10,7 +10,6 @@ include 'config/config.php';
     <title>Sewa Mobil - Rental Mobil Terbaik</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* === CSS sama seperti yang kamu kirim === */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #f5f7fa; color: #333; }
         header { background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
@@ -19,9 +18,33 @@ include 'config/config.php';
         .nav-links { display: flex; list-style: none; gap: 25px; }
         .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: #2563eb; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/background/mobil.jpg'); background-size: cover; background-position: center; height: 400px; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
-        .hero h1 { font-size: 48px; margin-bottom: 15px; }
-        .hero p { font-size: 18px; max-width: 600px; margin: 0 auto; }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/background/mobil.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+        }
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+        }
+
+        /* ===== CARS SECTION ===== */
         .car-section { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
         .section-title { text-align: center; font-size: 32px; margin-bottom: 40px; color: #2563eb; }
         .cars-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
@@ -34,8 +57,10 @@ include 'config/config.php';
         .price { font-size: 22px; font-weight: bold; color: #2563eb; }
         .features { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
         .feature { display: flex; align-items: center; gap: 5px; font-size: 14px; color: #666; }
-        .rent-btn { width: 100%; padding: 12px; background-color: #2563eb; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s; }
+        .rent-btn { width: 100%; padding: 12px; background-color: #2563eb; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s; text-decoration: none; text-align: center; display: inline-block; }
         .rent-btn:hover { background-color: #1e4bb9; }
+
+        /* ===== FOOTER ===== */
         footer { background-color: #1e293b; color: white; padding: 40px 20px; margin-top: 60px; }
         .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
         .footer-section h3 { margin-bottom: 20px; font-size: 18px; }
