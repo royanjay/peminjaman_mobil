@@ -1,33 +1,40 @@
-<!-- Windows -->
-
 <?php
-// $host = "localhost";
-// $user = "root";
-// $pass = "";
-// $db   = "sewa_mobil";
+    // ====================================================================
+    // KONFIGURASI UNTUK WINDOWS (XAMPP / WAMP)
+    // ====================================================================
 
-// $conn = mysqli_connect($host, $user, $pass, $db);
+    // $host = "localhost";
+    // $user = "root";
+    // $pass = "";
+    // $db   = "sewa_mobil";
 
-// if (!$conn) {
-//     die("Koneksi gagal: " . mysqli_connect_error());
-// }
+    // $conn = mysqli_connect($host, $user, $pass, $db);
 
-// if (session_status() == PHP_SESSION_NONE) {
-//     session_start();
-// }
+    // if (!$conn) {
+    //     die("Koneksi gagal (Windows): " . mysqli_connect_error());
+    // }
+
+    // if (session_status() == PHP_SESSION_NONE) {
+    //     session_start();
+    // }
 
 
-// <!-- Linux -->
+    // ====================================================================
+    // KONFIGURASI UNTUK LINUX (Fedora / Ubuntu / Apache)
+    // ====================================================================
 
+    $host = "127.0.0.1";
+    $user = "admin";                   // user MySQL Linux
+    $pass = "royhanganteng123";        // password MySQL Linux
+    $db   = "sewa_mobil";
 
-$host = "127.0.0.1";
-$user = "admin";     // ganti sesuai user MySQL
-$pass = "royhanganteng123";         // password MySQL kamu
-$db   = "sewa_mobil";
+    // Koneksi database
+    $conn = mysqli_connect($host, $user, $pass, $db);
 
-$conn = mysqli_connect($host, $user, $pass, $db);
+    if (!$conn) {
+        die("Koneksi gagal (Linux): " . mysqli_connect_error());
+    }
 
-if (!$conn) {
-    die("Koneksi gagal: " . mysqli_connect_error());
-}
-?>
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }

@@ -1,24 +1,26 @@
-<?php include '../config/config.php'; ?>
-
 <?php
+include '../config/config.php';
+
+// PROSES LOGIN HARUS DI ATAS HTML
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
-    $password = md5($_POST['password']);
+    $password = $_POST['password']; // TANPA md5 (kecuali DB md5)
+
+    // Jika password di DB pakai md5:
+    // $password = md5($_POST['password']);
 
     $query = mysqli_query($conn, "SELECT * FROM admin WHERE username='$username' AND password='$password'");
-    $cek = mysqli_num_rows($query);
+    $cek   = mysqli_num_rows($query);
 
     if ($cek > 0) {
         $_SESSION['login'] = true;
         header("Location: dashboard.php");
-
         exit;
     } else {
         echo "<script>alert('Username atau password salah!');</script>";
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -36,10 +38,12 @@ if (isset($_POST['login'])) {
             <label>Username</label>
             <input type="text" name="username" class="form-control" required>
           </div>
+
           <div class="mb-3">
             <label>Password</label>
             <input type="password" name="password" class="form-control" required>
           </div>
+
           <button type="submit" name="login" class="btn btn-primary w-100">Login</button>
         </form>
       </div>
@@ -47,3 +51,4 @@ if (isset($_POST['login'])) {
   </div>
 </body>
 </html>
+s
