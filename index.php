@@ -1,9 +1,17 @@
+<?php
+include 'config/config.php'; // pastikan $conn sudah diset di config.php
+
+// Cek apakah koneksi database berhasil
+if (!$conn) {
+    die("Koneksi database gagal: " . mysqli_connect_error());
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RentalMobil - Sewa Mobil Premium</title>
+    <title>RoyCar Rental - Sewa Mobil Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -628,7 +636,7 @@
     <div class="navbar">
         <div class="logo">
             <i class="fas fa-car"></i>
-            RentalMobil
+            RoyCar Rental
         </div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
@@ -765,7 +773,7 @@
                     Layanan sangat cepat dan mudah. Mobil yang disewa dalam kondisi prima dan bersih. Pasti akan menggunakan jasa mereka lagi!
                 </div>
                 <div class="testimonial-author">
-                    <img src="assets/img/upload/testemoni/gu" alt="Ahmad Susanto" class="author-avatar">
+                    <img src="assets/img/upload/testemoni/guntur.jpeg" alt="Ahmad Susanto" class="author-avatar">
                     <div class="author-info">
                         <h4>Ahmad Susanto</h4>
                         <p>Pelanggan Setia</p>
@@ -821,7 +829,7 @@
 <footer id="contact">
     <div class="footer-container">
         <div class="footer-section">
-            <h3>RentalMobil</h3>
+            <h3>RoyCar Rental</h3>
             <p>Kami menyediakan layanan rental mobil dengan kualitas terbaik dan harga terjangkau untuk memenuhi kebutuhan perjalanan Anda.</p>
             <div class="social-links">
                 <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -833,9 +841,9 @@
         
         <div class="footer-section">
             <h3>Kontak Kami</h3>
-            <p><i class="fas fa-map-marker-alt"></i> Jl. Raya No. 123, Jakarta</p>
-            <p><i class="fas fa-phone"></i> +62 21 1234 5678</p>
-            <p><i class="fas fa-envelope"></i> info@rentalmobil.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Pacitan-Ponorogo Desa Slahung, Ponorogo</p>
+            <p><i class="fas fa-phone"></i> +62 85 7313 34627</p>
+            <p><i class="fas fa-envelope"></i> info@RoyCar Rental.com</p>
         </div>
         
         <div class="footer-section">
@@ -857,7 +865,7 @@
     </div>
     
     <div class="footer-bottom">
-        <p>&copy; 2024 RentalMobil. All rights reserved.</p>
+        <p>&copy; 2024 RoyCar Rental. All rights reserved.</p>
     </div>
 </footer>
 
