@@ -1,6 +1,6 @@
 <?php
     // ====================================================================
-    // KONFIGURASI UNTUK WINDOWS (XAMPP / WAMP)
+    // KONFIGURASI UNTUK WINDOWaS (XAMPP / WAMP)
     // ====================================================================
 
     // $host = "localhost";
